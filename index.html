@@ -8,36 +8,63 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background-image: url('IMG_0003.png'); /* Update with correct image path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
         }
-        .game-container {
-            margin: 20px auto;
-            max-width: 800px;
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         select, button {
-            margin: 10px;
-            padding: 10px;
+            padding: 12px 20px;
             font-size: 16px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+        .game-container {
+            margin-top: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        object {
+            width: 800px;
+            height: 600px;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
-    <h1>SWF Player</h1>
-    <p>Select a game to play:</p>
-    <div>
-        <select id="gameSelector">
-            <option value="swf/portal.swf">Game 1</option>
-            <option value="swf/redball4.swf">Game 2</option>
-            <!-- Add more options for additional SWF files -->
-        </select>
-        <button onclick="loadGame()">Play</button>
-    </div>
-    <div class="game-container">
-        <object id="flashPlayer" data="" width="800" height="600" type="application/x-shockwave-flash">
-            <param name="allowScriptAccess" value="always">
-            <param name="allowFullScreen" value="true">
-        </object>
+    <div class="container">
+        <h1>SWF Player</h1>
+        <p>Select a game to play:</p>
+        <div>
+            <select id="gameSelector">
+                <option value="swf/portal.swf">Game 1</option>
+                <option value="swf/redball4.swf">Game 2</option>
+                <!-- Add more options for additional SWF files -->
+            </select>
+            <button onclick="loadGame()">Play</button>
+        </div>
+        <div class="game-container">
+            <object id="flashPlayer" data="" type="application/x-shockwave-flash">
+                <param name="allowScriptAccess" value="always">
+                <param name="allowFullScreen" value="true">
+            </object>
+        </div>
     </div>
 
     <script>
