@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWF Player</title>
+    <script src="ruffle/ruffle.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .game-container {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        select, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SWF Player</h1>
+    <p>Select a game to play:</p>
+    <div>
+        <select id="gameSelector">
+            <option value="swf/portal.swf">Game 1</option>
+            <option value="swf/redball4.swf">Game 2</option>
+            <!-- Add more options for additional SWF files -->
+        </select>
+        <button onclick="loadGame()">Play</button>
+    </div>
+    <div class="game-container">
+        <object id="flashPlayer" data="" width="800" height="600" type="application/x-shockwave-flash">
+            <param name="allowScriptAccess" value="always">
+            <param name="allowFullScreen" value="true">
+        </object>
+    </div>
+
+    <script>
+        function loadGame() {
+            const gamePath = document.getElementById('gameSelector').value;
+            const flashPlayer = document.getElementById('flashPlayer');
+            flashPlayer.data = gamePath;
+        }
+    </script>
+</body>
+</html>
